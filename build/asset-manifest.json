@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/bowhle-project-v2/static/css/main.5f591448.css",
+    "main.js": "/bowhle-project-v2/static/js/main.d9185f11.js",
+    "static/media/Bowhle-WHITE.png": "/bowhle-project-v2/static/media/Bowhle-WHITE.eb87da485921957cf1ce.png",
+    "index.html": "/bowhle-project-v2/index.html",
+    "main.5f591448.css.map": "/bowhle-project-v2/static/css/main.5f591448.css.map",
+    "main.d9185f11.js.map": "/bowhle-project-v2/static/js/main.d9185f11.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f591448.css",
+    "static/js/main.d9185f11.js"
+  ]
+}
