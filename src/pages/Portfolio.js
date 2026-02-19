@@ -81,6 +81,22 @@ const PROJECTS = [
     desc: 'Interactive prototype for a fitness tracking mobile app — tested across 40 participants.',
     color: 'linear-gradient(135deg, #2a5c45 0%, #1a3d2b 100%)',
   },
+    {
+    id: 9,
+    title: 'Fitness App Prototype',
+    subtitle: 'Interactive design thinking magic',
+    category: 'Prototyping',
+    desc: 'Interactive prototype for a fitness tracking mobile app — tested across 40 participants.',
+    color: 'linear-gradient(135deg, #2a5c45 0%, #1a3d2b 100%)',
+  },
+    {
+    id: 9,
+    title: 'Fitness App Prototype',
+    subtitle: 'Interactive design thinking magic',
+    category: 'Prototyping',
+    desc: 'Interactive prototype for a fitness tracking mobile app — tested across 40 participants.',
+    color: 'linear-gradient(135deg, #2a5c45 0%, #1a3d2b 100%)',
+  },
 ];
 
 const MARQUEE_CARDS = [

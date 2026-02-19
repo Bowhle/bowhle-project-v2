@@ -2,7 +2,7 @@
 // between public site (with Header/Footer) and dashboard routes.
 
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 
 // Shared layout
@@ -53,8 +53,8 @@ function Layout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Layout />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
