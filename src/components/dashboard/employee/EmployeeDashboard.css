@@ -1,0 +1,239 @@
+/* EmployeeDashboard.css — Employee dashboard styles */
+
+.emp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .emp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Upload area */
+.upload-area {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--light-gray);
+  margin-bottom: 16px;
+}
+
+.upload-area:hover,
+.upload-area.drag-over {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.upload-area__icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.upload-area__title {
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.upload-area__sub {
+  font-size: 0.82rem;
+  color: var(--mid-gray);
+  line-height: 1.6;
+}
+
+.upload-area input[type="file"] {
+  display: none;
+}
+
+.upload-btn {
+  margin-top: 16px;
+  padding: 11px 24px;
+  font-size: 0.82rem;
+}
+
+/* Link form */
+.link-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .link-form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.link-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-input-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 7px;
+}
+
+.link-input-group input,
+.link-input-group select,
+.link-input-group textarea {
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  outline: none;
+  transition: border-color var(--transition);
+  background: var(--white);
+}
+
+.link-input-group input:focus,
+.link-input-group select:focus,
+.link-input-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.link-input-group.full {
+  grid-column: 1 / -1;
+}
+
+.link-submit-btn {
+  align-self: flex-start;
+  padding: 12px 28px;
+  font-size: 0.83rem;
+}
+
+/* Submissions table */
+.submissions-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+table.submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.submissions-table thead tr {
+  background: var(--light-gray);
+}
+
+.submissions-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  white-space: nowrap;
+}
+
+.submissions-table td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--charcoal);
+  vertical-align: middle;
+}
+
+.submissions-table tbody tr:hover {
+  background: var(--accent-light);
+}
+
+.sub-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.sub-type-badge.file {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.sub-type-badge.link {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.sub-action-btn {
+  padding: 5px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.sub-action-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Client selector */
+.client-chip-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.client-chip {
+  padding: 7px 14px;
+  border-radius: 50px;
+  border: 2px solid var(--border);
+  background: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--mid-gray);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.client-chip.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* Employee stats */
+.emp-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 600px) {
+  .emp-stats-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

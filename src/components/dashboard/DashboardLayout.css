@@ -1,0 +1,350 @@
+/* DashboardLayout.css — Shared dashboard shell styles */
+
+.dash-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f6f7fb;
+}
+
+/* SIDEBAR */
+.dash-sidebar {
+  width: var(--sidebar-width);
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 200;
+  transition: transform 0.3s ease;
+}
+
+.dash-sidebar.mobile-closed {
+  transform: translateX(-100%);
+}
+
+@media (min-width: 900px) {
+  .dash-sidebar.mobile-closed {
+    transform: translateX(0);
+  }
+}
+
+.dash-sidebar__logo {
+  padding: 24px 24px 0;
+  margin-bottom: 8px;
+}
+
+.dash-sidebar__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+}
+
+.dash-sidebar__logo-text span {
+  color: var(--accent);
+}
+
+.dash-sidebar__role-badge {
+  display: inline-flex;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(127,44,221,0.25);
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dash-sidebar__nav {
+  flex: 1;
+  padding: 24px 0;
+  overflow-y: auto;
+}
+
+.dash-sidebar__section-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 16px 24px 8px;
+}
+
+.dash-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  border-radius: 0;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.dash-nav-link:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+.dash-nav-link.active {
+  color: var(--white);
+  background: rgba(127,44,221,0.2);
+}
+
+.dash-nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+.dash-nav-link__icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.dash-sidebar__footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.dash-sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-sidebar__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.dash-sidebar__user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-sidebar__user-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dash-sidebar__user-email {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* TOP HEADER */
+.dash-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .dash-header {
+    left: var(--sidebar-width);
+  }
+}
+
+.dash-header__menu-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .dash-header__menu-btn {
+    display: none;
+  }
+}
+
+.dash-header__menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+}
+
+.dash-header__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--black);
+  letter-spacing: 0.04em;
+  flex: 1;
+}
+
+.dash-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-header__notification {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.dash-header__notification:hover {
+  border-color: var(--accent);
+}
+
+.dash-header__notif-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--white);
+}
+
+.dash-header__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.dash-header__logout-btn {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--mid-gray);
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.04em;
+}
+
+.dash-header__logout-btn:hover {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+/* MAIN CONTENT */
+.dash-main {
+  flex: 1;
+  margin-left: 0;
+  margin-top: 64px;
+  padding: 32px 24px;
+  min-height: calc(100vh - 64px);
+}
+
+@media (min-width: 900px) {
+  .dash-main {
+    margin-left: var(--sidebar-width);
+  }
+}
+
+/* Overlay for mobile sidebar */
+.dash-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 150;
+}
+
+.dash-overlay.visible {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .dash-overlay.visible {
+    display: none;
+  }
+}
+
+/* Dashboard cards */
+.dash-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-card__title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 16px;
+}
+
+.dash-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--black);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}

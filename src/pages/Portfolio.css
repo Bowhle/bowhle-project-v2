@@ -1,0 +1,396 @@
+/* Portfolio.css — Big bold image-card grid, edge-to-edge */
+
+/* ---- HERO ---- */
+.portfolio-hero {
+  padding-top: calc(var(--header-height) + 60px);
+  padding-bottom: 60px;
+  background: var(--black);
+}
+
+.portfolio-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+.portfolio-hero__title span { color: var(--accent); }
+
+.portfolio-hero__sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ---- FILTER PILLS ---- */
+.portfolio-filters {
+  background: var(--white);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.portfolio-filters__pills {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 18px 0;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.portfolio-filters__pills::-webkit-scrollbar { display: none; }
+
+.filter-pill {
+  flex-shrink: 0;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--border);
+  background: var(--white);
+  color: var(--mid-gray);
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+.filter-pill:hover,
+.filter-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+/* ---- GRID — NO CONTAINER, EDGE TO EDGE ---- */
+.portfolio-grid-section {
+  padding: 0;
+  background: var(--white);
+}
+
+.portfolio-grid {
+  display: grid;
+  /* 2 columns on desktop — big blocks */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px;
+}
+
+@media (min-width: 1100px) {
+  .portfolio-grid {
+    /* First card spans 2 cols to be a hero card */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 14px;
+  }
+
+  /* Make every 7th card (1st of each group) span 2 cols */
+  .portfolio-card.featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+}
+
+/* ---- PORTFOLIO CARD ---- */
+.portfolio-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  /* Tall cards — like the reference */
+  aspect-ratio: 4/3;
+  display: block;
+  background: #1a1a1a;
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+}
+
+/* Featured / wide card is more landscape */
+.portfolio-card.featured {
+  aspect-ratio: 16/7;
+}
+
+@media (max-width: 1099px) {
+  .portfolio-card.featured {
+    aspect-ratio: 4/3;
+  }
+}
+
+.portfolio-card:hover {
+  transform: scale(1.012);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+  z-index: 2;
+}
+
+/* Image fills the card */
+.portfolio-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+/* Gradient placeholder when no image */
+.portfolio-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: rgba(255,255,255,0.12);
+  letter-spacing: 0.08em;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .portfolio-card__image,
+.portfolio-card:hover .portfolio-card__placeholder {
+  transform: scale(1.05);
+}
+
+/* Permanent gradient scrim — heavier at bottom */
+.portfolio-card__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.78) 0%,
+    rgba(0,0,0,0.15) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Text — always visible, bottom-left */
+.portfolio-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 30px 30px;
+  z-index: 2;
+}
+
+.portfolio-card__tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 6px;
+}
+
+.portfolio-card__title {
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+/* Subtitle: hidden, slides up on hover */
+.portfolio-card__desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.portfolio-card:hover .portfolio-card__desc {
+  max-height: 80px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---- SKELETON ---- */
+.portfolio-skeleton {
+  border-radius: 24px;
+  aspect-ratio: 4/3;
+}
+
+/* ---- SOCIAL MARQUEE ---- */
+.social-media-section {
+  background: var(--black);
+  padding: 80px 0;
+  overflow: hidden;
+}
+.social-media-section__header { margin-bottom: 40px; }
+
+.marquee-wrapper {
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-card {
+  flex-shrink: 0;
+  width: 180px;
+  height: 220px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+}
+
+/* Phone mockup */
+.phone-mockup-wrap { display: flex; justify-content: center; }
+
+.phone-mockup {
+  width: 200px;
+  height: 400px;
+  background: #111;
+  border-radius: 36px;
+  border: 5px solid #333;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+.phone-mockup__notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: #000;
+  border-radius: 50px;
+  z-index: 2;
+}
+.phone-mockup__screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #7f2cdd 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-mockup__label {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* ---- LIGHTBOX ---- */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-content {
+  max-width: 780px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: default;
+  position: relative;
+  background: var(--white);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: var(--white);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.lightbox-close:hover { background: var(--accent); }
+
+.lightbox-img {
+  aspect-ratio: 16/9;
+  width: 100%;
+  overflow: hidden;
+}
+.lightbox-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lightbox-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+}
+
+.lightbox-body { padding: 24px 28px 30px; }
+.lightbox-body__tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 7px;
+}
+.lightbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.lightbox-body p {
+  font-size: 0.92rem;
+  color: var(--mid-gray);
+  line-height: 1.72;
+}

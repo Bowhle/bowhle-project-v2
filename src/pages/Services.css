@@ -1,0 +1,130 @@
+/* Services.css — Services page styles */
+
+.services-hero {
+  padding-top: calc(var(--header-height) + 80px);
+  padding-bottom: 80px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.services-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+
+.services-hero__title span {
+  color: var(--accent);
+}
+
+.services-hero__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* Service sections */
+.service-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.service-section:nth-child(even) {
+  background: var(--light-gray);
+}
+
+.service-section__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .service-section__inner {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+  }
+}
+
+.service-section__icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.service-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--black);
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+.service-section__desc {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.service-section__best-for {
+  margin-bottom: 28px;
+}
+
+.service-section__list-title {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 10px;
+}
+
+.service-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-section__list li {
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+  padding-left: 16px;
+  position: relative;
+}
+
+.service-section__list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.service-section__deliverables {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+.service-section:nth-child(even) .service-section__deliverables {
+  background: var(--white);
+}
+
+.service-section__deliverables .service-section__list-title {
+  margin-bottom: 14px;
+}
+
+.deliverable-badge {
+  display: inline-flex;
+  margin: 4px;
+  padding: 6px 14px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}

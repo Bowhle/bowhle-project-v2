@@ -1,0 +1,245 @@
+/* About.css — About page styles */
+
+.about-hero {
+  padding-top: calc(var(--header-height) + 80px);
+  padding-bottom: 80px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.about-hero__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.about-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+
+.about-hero__title em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.about-hero__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* Archetype */
+.archetype {
+  background: var(--accent);
+  padding: 64px 0;
+  text-align: center;
+}
+
+.archetype__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+}
+
+.archetype__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.archetype__badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.archetype__badge {
+  padding: 8px 20px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.archetype__desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Timeline */
+.timeline {
+  padding: 80px 0 100px;
+  background: var(--white);
+}
+
+.timeline__title {
+  margin-bottom: 64px;
+}
+
+.timeline__track {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline__track::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline__year {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.timeline__event {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.timeline__detail {
+  font-size: 0.88rem;
+  color: var(--mid-gray);
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* About values */
+.about-values {
+  background: var(--light-gray);
+  padding: 80px 0;
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+@media (min-width: 600px) {
+  .about-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .about-values__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.value-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px 22px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-4px);
+}
+
+.value-card__icon {
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  margin: 0 auto 18px;
+  color: var(--accent);
+  transition: background 0.22s ease;
+}
+
+.value-card:hover .value-card__icon {
+  background: rgba(127, 44, 221, 0.15);
+  color: var(--accent);
+}
+
+.value-card__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.value-card__desc {
+  font-size: 0.82rem;
+  color: var(--mid-gray);
+  line-height: 1.6;
+}
+
+/* About CTA */
+.about-cta {
+  background: var(--black);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.about-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+}
+
+.about-cta__title span {
+  color: var(--accent);
+}
